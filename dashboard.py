@@ -31,15 +31,15 @@ TEMPLATE = """
             <th>System Version</th>
             <th>Compute Power</th>
         </tr>
-        {% for i, device in enumerate(devices, 1) %}
-        <tr>
-            <td>{{ i }}</td>
+           {% for device in devices %}
+          <tr>
+            <td>{{ loop.index }}</td>
             <td>{{ device['Device Name'] }}</td>
-            <td>{{ device['Model'] }}</td>
             <td>{{ device['OS'] }}</td>
+            <td>{{ device['Model'] }}</td>
             <td>{{ device['System Version'] }}</td>
             <td>{{ device['Estimated Compute Power'] }}</td>
-        </tr>
+          </tr>
         {% endfor %}
     </table>
     {% else %}
